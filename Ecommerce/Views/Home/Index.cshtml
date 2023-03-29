@@ -1,0 +1,84 @@
+﻿@model IndexVM
+<!-- Topbar Start -->
+<div class="container-fluid">
+    <div class="row bg-secondary py-1 px-xl-5">
+       
+        <div class="col-lg-6 text-center text-lg-right">
+            <div class="d-inline-flex align-items-center">
+               
+                
+                </div>
+            </div>
+            <div class="d-inline-flex align-items-center d-block d-lg-none">
+                <a href="" class="btn px-0 ml-2">
+                    <i class="fas fa-heart text-dark"></i>
+                    <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
+                </a>
+                <a href="" class="btn px-0 ml-2">
+                    <i class="fas fa-shopping-cart text-dark"></i>
+                    <span class="badge text-dark border border-dark rounded-circle" style="padding-bottom: 2px;">0</span>
+                </a>
+            </div>
+        </div>
+    </div>
+   
+</div>
+<!-- Topbar End -->
+
+<!-- Categories Start -->
+<div class="container-fluid pt-5">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Categoories</span></h2>
+    <div class="row px-xl-5 pb-3">
+        @foreach (var item in Model.Categories)
+        {
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                <a class="text-decoration-none" href="~/Home/ProductCategory/@item.CatId">
+                    <div class="cat-item d-flex align-items-center mb-4">
+                        <div class="overflow-hidden" style="width: 100px; height: 100px;">
+                            <img class="img-fluid" src="~/category/@item.CatPhoto" alt="">
+                        </div>
+                        <div class="flex-fill pl-3">
+
+                            <h6>@item.CatName</h6>
+                            <small class="text-body">100 Products</small>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+        }
+    </div>
+</div>
+<!-- Categories End -->
+<!-- Products Start -->
+<div class="container-fluid pt-5 pb-3">
+    <h2 class="section-title position-relative text-uppercase mx-xl-5 mb-4"><span class="bg-secondary pr-3">Featured Products</span></h2>
+
+    <div class="row px-xl-5">
+        @foreach (var item in Model.Products)
+        {
+            <div class="col-lg-3 col-md-4 col-sm-6 pb-1">
+                <div class="product-item bg-light mb-4">
+                    <div class="product-img position-relative overflow-hidden">
+                        <img class="img-fluid w-100" style="width:100px ; height:300px;" src="~/product/@item.ProImage">
+                        <div class="product-action">
+                            <a class="btn btn-outline-dark btn-square" href="~/Home/ProductDetails/@item.ProId"><i class="fa fa-shopping-cart"></i></a>
+
+                        </div>
+                    </div>
+                    <div class="text-center py-4">
+                        <a class="h6 text-decoration-none text-truncate" href="">@item.ProName</a>
+                        <div class="d-flex align-items-center justify-content-center mt-2">
+                            <h5>@item.Price <span style="color:darkgreen">$</span></h5><h6 class="text-muted ml-2"></h6>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+
+    </div>
+
+</div>
+<!-- Products End -->
